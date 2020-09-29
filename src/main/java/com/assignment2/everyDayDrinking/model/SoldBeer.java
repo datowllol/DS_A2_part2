@@ -34,4 +34,10 @@ public final class SoldBeer {
     public SoldBeer() {
         soldBeerId = UUID.randomUUID();
     }
+
+    public SoldBeer(int moneyGain, String beerType) {
+        soldBeerId = UUID.randomUUID();
+        this.moneyGain = moneyGain;
+        this.beerType = beerType;
+    }
 }

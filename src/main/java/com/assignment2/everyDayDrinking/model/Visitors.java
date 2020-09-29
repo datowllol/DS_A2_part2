@@ -32,4 +32,9 @@ public final class Visitors {
     public Visitors() {
         visitorId = UUID.randomUUID();
     }
+
+    public Visitors(int visitorsNum) {
+        visitorId = UUID.randomUUID();
+        this.visitorsNum = visitorsNum;
+    }
 }

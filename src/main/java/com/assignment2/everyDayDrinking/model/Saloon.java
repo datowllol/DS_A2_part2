@@ -34,4 +34,10 @@ public final class Saloon {
     public Saloon() {
         tableId = UUID.randomUUID();
     }
+
+    public Saloon(String uniqueName, int placeNum) {
+        tableId = UUID.randomUUID();
+        this.placeNum=placeNum;
+        this.uniqueName=uniqueName;
+    }
 }
