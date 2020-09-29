@@ -24,7 +24,7 @@ public class PlaceFreeService implements InterfacePlaceFreeService {
     private TableLeavingService tableFreeService;
 
 
-    public void visitorsLeavePub(UUID id) {
+    public Visitors visitorsLeavePub(UUID id) {
 
 
         FreeTable table = new FreeTable();
@@ -32,5 +32,6 @@ public class PlaceFreeService implements InterfacePlaceFreeService {
 
         tableFreeService.addTable(table);
         tableOccupationService.deleteById(placeFindService.getById(id).getOccupiedTable().getOccupiedTableId());
+        return placeFindService.getById(id);
     }
 }

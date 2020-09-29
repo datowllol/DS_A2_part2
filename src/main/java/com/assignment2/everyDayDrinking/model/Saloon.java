@@ -22,6 +22,9 @@ public final class Saloon {
     @Column
     private int placeNum;
 
+    @Column
+    private String uniqueName;
+
     @OneToOne(mappedBy = "saloon")
     OccupiedTable occupiedTable;
 

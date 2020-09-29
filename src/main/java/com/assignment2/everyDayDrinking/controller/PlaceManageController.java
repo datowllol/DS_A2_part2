@@ -41,8 +41,7 @@ public class PlaceManageController {
 
 
     @DeleteMapping("/{visitorId}")
-    public ResponseEntity<Void> visitorsLeavePub(@PathVariable(value = "visitorId") UUID id) {
-        placeFreeService.visitorsLeavePub(id);
-        return ResponseEntity.noContent().build();
+    public Visitors visitorsLeavePub(@PathVariable(value = "visitorId") UUID id) {
+       return placeFreeService.visitorsLeavePub(id);
     }
 }
