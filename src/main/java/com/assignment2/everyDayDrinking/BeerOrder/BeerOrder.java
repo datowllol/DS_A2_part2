@@ -8,6 +8,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 public class BeerOrder {
+    UUID soldBeerId;
     String beerType;
     int moneyGain;
     UUID visitorsId;

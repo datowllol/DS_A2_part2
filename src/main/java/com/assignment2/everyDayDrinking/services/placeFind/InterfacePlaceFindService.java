@@ -1,4 +1,4 @@
-package com.assignment2.everyDayDrinking.services.PlaceFind;
+package com.assignment2.everyDayDrinking.services.placeFind;
 
 import com.assignment2.everyDayDrinking.model.Visitors;
 

@@ -1,4 +1,4 @@
-package com.assignment2.everyDayDrinking.services.BeerPurchase;
+package com.assignment2.everyDayDrinking.services.beerPurchase;
 
 import com.assignment2.everyDayDrinking.model.SoldBeer;
 import com.assignment2.everyDayDrinking.model.Visitors;

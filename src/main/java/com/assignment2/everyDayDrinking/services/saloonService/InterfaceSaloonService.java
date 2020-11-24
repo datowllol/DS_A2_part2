@@ -1,9 +1,11 @@
-package com.assignment2.everyDayDrinking.services.SaloonService;
+package com.assignment2.everyDayDrinking.services.saloonService;
 
 import com.assignment2.everyDayDrinking.model.Saloon;
+import com.assignment2.everyDayDrinking.model.Visitors;
 
 import java.util.List;
 import java.util.UUID;
+
 
 public interface InterfaceSaloonService {
 
@@ -13,7 +15,7 @@ public interface InterfaceSaloonService {
 
     Saloon getById(UUID id);
 
-    List<Saloon> getByPlaceNum(Integer placeNum);
+    Saloon getByPlaceNum(Visitors visitorsDto);
 
-    void deleteSaloonById(UUID id);
+    void deleteSaloonById(UUID Id);
 }

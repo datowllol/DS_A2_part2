@@ -1,6 +1,7 @@
 package com.assignment2.everyDayDrinking;
 
 import com.assignment2.everyDayDrinking.BeerOrder.BeerOrder;
+import com.assignment2.everyDayDrinking.model.FreeTable;
 import com.assignment2.everyDayDrinking.model.Saloon;
 import com.assignment2.everyDayDrinking.model.SoldBeer;
 import com.assignment2.everyDayDrinking.model.Visitors;
@@ -14,11 +15,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.UUID;
+
 @SpringBootApplication
 public class EveryDayDrinkingApplication {
 
 
-    private static final String URL = "http://localhost:0005";
+    private static final String URL = "http://127.0.0.1:65097/";
     private static final HttpHeaders headers = new HttpHeaders();
     private static final RestTemplate restTemplate = new RestTemplate();
     private static final HttpEntity<Object> headersEntity = new HttpEntity<>(headers);
@@ -28,23 +31,23 @@ public class EveryDayDrinkingApplication {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Saloon table1 = new Saloon("Big table", 8);
-        addEntity("/saloon", table1);
+        addEntity("saloon", table1);
 
         Saloon table2 = new Saloon("Small table under window", 5);
-        addEntity("/saloon", table2);
-
+        addEntity("saloon", table2);
 
         Visitors visitorsGroup1 = new Visitors(6);
-        addEntity("/visitors", visitorsGroup1);
+        addEntity("saloon/getbynum", visitorsGroup1);
 
         Visitors visitorsGroup2 = new Visitors(4);
-        addEntity("/visitors", visitorsGroup2);
+        addEntity("visitors", visitorsGroup2);
 
         Visitors visitorsGroup3 = new Visitors(3);
-        addEntity("/visitors", visitorsGroup3);
+        addEntity("visitors", visitorsGroup3);
 
         SoldBeer order1 = new SoldBeer(50, "Unfiltered dark");
         beerPurchase(visitorsGroup1, order1);
+
 
         SoldBeer order2 = new SoldBeer(100, "Vodka");
         beerPurchase(visitorsGroup1, order2);
@@ -52,33 +55,30 @@ public class EveryDayDrinkingApplication {
         SoldBeer order3 = new SoldBeer(20, "Teteriv");
         beerPurchase(visitorsGroup2, order3);
 
-        visitorsLeave("/visitors", visitorsGroup2);
+        visitorsLeave("visitors", visitorsGroup2);
 
         Visitors visitorsGroup4 = new Visitors(3);
-        addEntity("/visitors", visitorsGroup4);
+        addEntity("visitors", visitorsGroup4);
 
         SoldBeer order4 = new SoldBeer(200, "Moonshine");
         beerPurchase(visitorsGroup4, order4);
-
-        visitorsLeave("/visitors", visitorsGroup1);
-        visitorsLeave("/visitors", visitorsGroup4);
 
         getDayResult();
     }
 
     private static void getDayResult() {
-        ResponseEntity<String> response = restTemplate.getForEntity(URL + "/beerSale", String.class);
-            System.out.println(response);
+        ResponseEntity<String> response = restTemplate.getForEntity(URL + "beersale", String.class);
+        System.out.println(response);
     }
 
     private static void beerPurchase(Visitors visitors, SoldBeer soldBeer) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String Request = objectMapper.writeValueAsString(new
-                    BeerOrder(soldBeer.getBeerType(), soldBeer.getMoneyGain(), visitors.getVisitorId()));
+                    BeerOrder(soldBeer.getSoldBeerId(), soldBeer.getBeerType(), soldBeer.getMoneyGain(), visitors.getVisitorId()));
             HttpEntity<String> httpRequest = new HttpEntity<>(Request, headers);
             ResponseEntity<String> response = restTemplate.postForEntity(URL +
-                            "/beerSale/",
+                            "beersale",
                     httpRequest, String.class);
             System.out.println(response);
         } catch (JsonProcessingException e) {

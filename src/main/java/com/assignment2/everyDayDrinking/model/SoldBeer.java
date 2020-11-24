@@ -20,16 +20,8 @@ public final class SoldBeer {
 
     @Column
     private int moneyGain;
-
-    @Column
     private String beerType;
-
     private UUID visitorsId;
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToOne
-    @JoinColumn(name = "visitorId")
-    private Visitors visitors;
 
     public SoldBeer() {
         soldBeerId = UUID.randomUUID();

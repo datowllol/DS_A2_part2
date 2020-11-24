@@ -25,11 +25,11 @@ public final class Saloon {
     @Column
     private String uniqueName;
 
-    @OneToOne(mappedBy = "saloon")
-    OccupiedTable occupiedTable;
+    @Column
+    private UUID occupiedTableId;
 
-    @OneToOne(mappedBy = "saloon")
-    FreeTable freeTable;
+    @Column
+    private UUID freeTableId;
 
     public Saloon() {
         tableId = UUID.randomUUID();

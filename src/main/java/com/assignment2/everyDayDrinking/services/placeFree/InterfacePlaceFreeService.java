@@ -1,4 +1,4 @@
-package com.assignment2.everyDayDrinking.services.PlaceFree;
+package com.assignment2.everyDayDrinking.services.placeFree;
 
 import com.assignment2.everyDayDrinking.model.Visitors;
 

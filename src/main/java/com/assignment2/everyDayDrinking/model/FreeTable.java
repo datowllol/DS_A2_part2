@@ -16,13 +16,11 @@ public final class FreeTable {
 
     @Id
     private UUID freeTableId;
-
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "tableId")
-    private Saloon saloon;
+    @Column
+    private UUID saloonId;
 
     public FreeTable(){
         freeTableId = UUID.randomUUID();
     }
+
 }

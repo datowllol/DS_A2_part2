@@ -1,8 +1,8 @@
 package com.assignment2.everyDayDrinking.controller;
 
 import com.assignment2.everyDayDrinking.model.Visitors;
-import com.assignment2.everyDayDrinking.services.PlaceFind.PlaceFindService;
-import com.assignment2.everyDayDrinking.services.PlaceFree.PlaceFreeService;
+import com.assignment2.everyDayDrinking.services.placeFind.PlaceFindService;
+import com.assignment2.everyDayDrinking.services.placeFree.PlaceFreeService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +42,6 @@ public class PlaceManageController {
 
     @DeleteMapping("/{visitorId}")
     public Visitors visitorsLeavePub(@PathVariable(value = "visitorId") UUID id) {
-       return placeFreeService.visitorsLeavePub(id);
+        return placeFreeService.visitorsLeavePub(id);
     }
 }

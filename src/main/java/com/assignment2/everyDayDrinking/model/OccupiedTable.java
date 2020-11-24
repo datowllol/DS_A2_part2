@@ -19,18 +19,13 @@ public final class OccupiedTable {
     private UUID occupiedTableId;
 
 
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "visitorId")
-    private Visitors visitors;
+    @Column
+    private UUID visitorsId;
 
+    @Column
+    private UUID saloonId;
 
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "tableId")
-    private Saloon saloon;
-
-    public OccupiedTable(){
+    public OccupiedTable() {
         occupiedTableId = UUID.randomUUID();
     }
 }

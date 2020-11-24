@@ -1,7 +1,7 @@
 package com.assignment2.everyDayDrinking.controller;
 
 import com.assignment2.everyDayDrinking.model.SoldBeer;
-import com.assignment2.everyDayDrinking.services.BeerPurchase.BeerPurchaseService;
+import com.assignment2.everyDayDrinking.services.beerPurchase.BeerPurchaseService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/beerSale")
+@RequestMapping("/beersale")
 @AllArgsConstructor
 @NoArgsConstructor
 public class BeerPurchaseController {

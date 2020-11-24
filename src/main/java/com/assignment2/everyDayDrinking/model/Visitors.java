@@ -21,13 +21,8 @@ public final class Visitors {
 
     @Column
     private int visitorsNum;
+    private UUID occupiedTableID;
 
-    @OneToOne(mappedBy = "visitors")
-    OccupiedTable occupiedTable;
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "visitors", fetch = FetchType.LAZY)
-    private List<SoldBeer> soldBeer;
 
     public Visitors() {
         visitorId = UUID.randomUUID();

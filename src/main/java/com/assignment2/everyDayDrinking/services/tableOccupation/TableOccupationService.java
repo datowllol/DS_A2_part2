@@ -1,4 +1,4 @@
-package com.assignment2.everyDayDrinking.services.TableOccupation;
+package com.assignment2.everyDayDrinking.services.tableOccupation;
 
 import com.assignment2.everyDayDrinking.model.OccupiedTable;
 import com.assignment2.everyDayDrinking.repository.OccupiedTableRepository;
