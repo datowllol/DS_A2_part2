@@ -10,7 +10,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.validation.constraints.Null;
 import java.util.List;
 import java.util.UUID;
 
